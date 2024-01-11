@@ -100,68 +100,63 @@ CREATE DATABASE movies;
 
 CREATE TABLE directors (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    director_name VARCHAR(50) NOT NULL,
+    director_name VARCHAR(255) NOT NULL,
     notes TEXT
 );
 
-INSERT INTO directors (director_name, notes)
+INSERT INTO directors(director_name)
 VALUES
-('TestDirector1', 'Note 1'),
-('TestDirector2', 'Note 2'),
-('TestDirector3', 'Note 3'),
-('TestDirector4', 'Note 4'),
-('TestDirector5', 'Note 5');
+('Director1'),
+('Director2'),
+('Director3'),
+('Director4'),
+('Director5');
 
 CREATE TABLE genres (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    genre_name VARCHAR(50) NOT NULL,
+    genre_name VARCHAR(255) NOT NULL,
     notes TEXT
 );
-
-INSERT INTO genres (genre_name, notes)
+INSERT INTO genres(genre_name)
 VALUES
-('TestGenre1', 'Note 1'),
-('TestGenre2', 'Note 2'),
-('TestGenre3', 'Note 3'),
-('TestGenre4', 'Note 4'),
-('TestGenre5', 'Note 5');
+('Genre1'),
+('Genre2'),
+('Genre3'),
+('Genre4'),
+('Genre5');
 
 CREATE TABLE categories (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    category_name VARCHAR(50) NOT NULL,
+    category_name VARCHAR(255) NOT NULL,
     notes TEXT
 );
-
-INSERT INTO categories (category_name, notes)
+INSERT INTO categories(category_name)
 VALUES
-('TestCategory1', 'Note 1'),
-('TestCategory2', 'Note 2'),
-('TestCategory3', 'Note 3'),
-('TestCategory4', 'Note 4'),
-('TestCategory5', 'Note 5');
+('Category1'),
+('Category2'),
+('Category3'),
+('Category4'),
+('Category5');
 
 CREATE TABLE movies (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(50) NOT NULL,
-    director_id INT,
-    copyright_year YEAR,
-    length TIME,
-    genre_id INT,
-    category_id INT,
-    rating DECIMAL(2, 1),
-    notes TEXT,
-    FOREIGN KEY (director_id) REFERENCES directors (id),
-    FOREIGN KEY (genre_id) REFERENCES genres (id),
-    FOREIGN KEY (category_id) REFERENCES categories (id)
+    title VARCHAR(255) NOT NULL,
+    director_id INT NOT NULL,
+    copyright_year INT,
+    length DOUBLE,
+    genre_id INT NOT NULL,
+    category_id INT NOT NULL,
+    rating DOUBLE,
+    notes TEXT
 );
 
-INSERT INTO movies (title, director_id, copyright_year, length, genre_id, category_id, rating, notes)
+INSERT INTO movies (title, director_id, genre_id, category_id)
 VALUES
-('TestTitle1', 1, 1995, '00:05:00', 2, 3, 7.5, 'Note 1'),
-('TestTitle2', 1, 1994, '00:02:00', 2, 5, NULL, 'Note 2'),
-('TestTitle3', 1, 1992, '00:07:00', 2, 4, NULL, 'Note 3'),
-('TestTitle4', 1, 1997, '00:03:00', 2, 3, NULL, 'Note 4'),
-('TestTitle5', 1, 1991, '00:06:00', 2, 3, NULL, 'Note 5');
+('Movie1',1,2,3),
+('Movie2',2,4,6),
+('Movie3',4,6,1),
+('Movie4',7,9,2),
+('Movie5',10,3,5);
 -- 12
 CREATE DATABASE car_rental;
 
